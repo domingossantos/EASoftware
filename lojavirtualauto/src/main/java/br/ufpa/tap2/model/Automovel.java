@@ -1,9 +1,6 @@
 package br.ufpa.tap2.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by domingossantos on 14/09/15.
@@ -69,6 +66,8 @@ public class Automovel {
         this.kilometragem = kilometragem;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "modelo_id")
     public Modelo getModelo() {
         return modelo;
     }
