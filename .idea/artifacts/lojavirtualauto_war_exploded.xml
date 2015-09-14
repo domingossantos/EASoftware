@@ -6,12 +6,6 @@
         <element id="directory" name="classes">
           <element id="module-output" name="lojavirtualauto" />
         </element>
-        <element id="directory" name="lib">
-          <element id="library" level="project" name="Maven: org.primefaces.themes:bootstrap:1.0.10" />
-          <element id="library" level="project" name="Maven: org.primefaces:primefaces:4.0" />
-          <element id="library" level="project" name="Maven: commons-lang:commons-lang:2.5" />
-          <element id="library" level="project" name="Maven: org.primefaces.themes:humanity:1.0.8" />
-        </element>
       </element>
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/lojavirtualauto/target/lojavirutalauto.war/META-INF/MANIFEST.MF" />

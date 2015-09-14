@@ -10,10 +10,7 @@
     <packaging>war</packaging>
 
     <properties>
-        <version.javaee>6.0</version.javaee>
-        <version.primefaces>4.0</version.primefaces>
-        <version.commons-lang>2.5</version.commons-lang>
-        <version.theme>1.0.8</version.theme>
+        <version.javaee>7.0</version.javaee>
     </properties>
 
     <build>
@@ -23,8 +20,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>2.3.2</version>
                 <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
+                    <source>1.7</source>
+                    <target>1.7</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -43,26 +40,6 @@
             <artifactId>javaee-api</artifactId>
             <version>${version.javaee}</version>
             <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.primefaces.themes</groupId>
-            <artifactId>bootstrap</artifactId>
-            <version>1.0.10</version>
-        </dependency>
-        <dependency>
-            <groupId>org.primefaces</groupId>
-            <artifactId>primefaces</artifactId>
-            <version>${version.primefaces}</version>
-        </dependency>
-        <dependency>
-            <groupId>commons-lang</groupId>
-            <artifactId>commons-lang</artifactId>
-            <version>${version.commons-lang}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.primefaces.themes</groupId>
-            <artifactId>humanity</artifactId>
-            <version>${version.theme}</version>
         </dependency>
 
     </dependencies>
