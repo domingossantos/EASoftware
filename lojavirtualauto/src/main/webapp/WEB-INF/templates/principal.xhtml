@@ -11,14 +11,37 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-<h:head>
-    <title>Loja Virtual Auto</title>
-</h:head>
+<f:view contentType="text/html">
 
-<h:body>
-    <ui:insert name="content"></ui:insert>
-</h:body>
+    <h:head>
+        <title>Loja Virtual Auto</title>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"></link>
+    </h:head>
+
+    <h:body>
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Loja Virtual Auto</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Consultar</a></li>
+                        <li><a href="#">Novo Automóvel</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <ui:insert name="content"></ui:insert>
+    </h:body>
+
+</f:view>
+
+
 
 </html>
