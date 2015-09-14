@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="lojavirtualauto:war">
+    <output-path>$PROJECT_DIR$/lojavirtualauto/target</output-path>
+    <root id="archive" name="lojavirutalauto-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="lojavirtualauto:war exploded" />
+    </root>
+  </artifact>
+</component>

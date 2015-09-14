@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="default" transaction-type="JTA">
+    <jta-data-source>java:/jboss/datasources/exercicio_ii_ds</jta-data-source>
+    <class>br.gov.ufpa.easoftware.tapii.exercicioii.modelo.entidade.Atividade</class>
+    <class>br.gov.ufpa.easoftware.tapii.exercicioii.modelo.entidade.Cidade</class>
+    <class>br.gov.ufpa.easoftware.tapii.exercicioii.modelo.entidade.EnderecoNacional</class>
+    <class>br.gov.ufpa.easoftware.tapii.exercicioii.modelo.entidade.EnderecoExterior</class>
+    <class>br.gov.ufpa.easoftware.tapii.exercicioii.modelo.entidade.Estado</class>
+    <class>br.gov.ufpa.easoftware.tapii.exercicioii.modelo.entidade.Modulo</class>
+    <class>br.gov.ufpa.easoftware.tapii.exercicioii.modelo.entidade.Pais</class>
+    <class>br.gov.ufpa.easoftware.tapii.exercicioii.modelo.entidade.Perfil</class>
+    <class>br.gov.ufpa.easoftware.tapii.exercicioii.modelo.entidade.PermissaoPerfil</class>
+    <class>br.gov.ufpa.easoftware.tapii.exercicioii.modelo.entidade.Usuario</class>
+    <class>br.gov.ufpa.easoftware.tapii.exercicioii.modelo.entidade.Interfaces</class>
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    <properties>
+      <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="hibernate.show_sql" value="false"/>
+      <property name="hibernate.format_sql" value="false"/>
+      <property name="hibernate.hbm2ddl.auto" value="update"/>
+    </properties>
+  </persistence-unit>
+</persistence>

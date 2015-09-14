@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/EASoftware.iml" filepath="$PROJECT_DIR$/.idea/EASoftware.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Frameworks/Frameworks.iml" filepath="$PROJECT_DIR$/Frameworks/Frameworks.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lojavirtualauto/lojavirtualauto.iml" filepath="$PROJECT_DIR$/lojavirtualauto/lojavirtualauto.iml" />
+    </modules>
+  </component>
+</project>

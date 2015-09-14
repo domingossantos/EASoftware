@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="745858048">
+    <data-source source="LOCAL" name="PostgreSQL - tap2@localhost" uuid="036f40f5-ca44-4946-8269-cb52ba434be4">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/tap2</jdbc-url>
+      <libraries />
+    </data-source>
+  </component>
+</project>
