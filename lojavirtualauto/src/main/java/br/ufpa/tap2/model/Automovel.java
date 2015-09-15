@@ -26,6 +26,7 @@ public class Automovel {
         this.id = id;
     }
 
+    @Column(name = "ano_fabricacao")
     public Integer getAnoFabricacao() {
         return anoFabricacao;
     }
@@ -34,6 +35,7 @@ public class Automovel {
         this.anoFabricacao = anoFabricacao;
     }
 
+    @Column(name = "ano_modelo")
     public Integer getAnoModelo() {
         return anoModelo;
     }

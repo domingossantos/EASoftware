@@ -1,5 +1,6 @@
 package br.ufpa.tap2.dao;
 
+import br.ufpa.tap2.dao.common.DAO;
 import br.ufpa.tap2.model.Automovel;
 
 /**

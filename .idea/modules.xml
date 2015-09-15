@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/CDI-Exemplo/CDI-Exemplo.iml" filepath="$PROJECT_DIR$/CDI-Exemplo/CDI-Exemplo.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/EASoftware.iml" filepath="$PROJECT_DIR$/.idea/EASoftware.iml" />
       <module fileurl="file://$PROJECT_DIR$/Frameworks/Frameworks.iml" filepath="$PROJECT_DIR$/Frameworks/Frameworks.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JUnit/JUnit.iml" filepath="$PROJECT_DIR$/JUnit/JUnit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Mockito/Mockito.iml" filepath="$PROJECT_DIR$/Mockito/Mockito.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PowerMock/PowerMock.iml" filepath="$PROJECT_DIR$/PowerMock/PowerMock.iml" />
       <module fileurl="file://$PROJECT_DIR$/lojavirtualauto/lojavirtualauto.iml" filepath="$PROJECT_DIR$/lojavirtualauto/lojavirtualauto.iml" />
     </modules>
   </component>
