@@ -6,10 +6,10 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-<ui:composition template="../../WEB-INF/templates/principal.xhtml">
+<ui:composition template="../WEB-INF/templates/principal.xhtml">
 
     <ui:define name="content">
-        <h:dataTable value="#{automovelGridBean.automoveis}" var="auto">
+        <h:dataTable value="#{automovelGridBean.automoveis}" var="auto" width="80%">
             <h:column>
                 <f:facet name="header">Marca</f:facet>
                 #{auto.modelo.marca.nome}
@@ -21,6 +21,19 @@
             <h:column>
                 <f:facet name="header">Ano</f:facet>
                 #{auto.anoModelo}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Km</f:facet>
+                #{auto.kilometragem}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Valor</f:facet>
+                #{auto.preco}
+            </h:column>
+            <h:column>
+                <f:facet name="Detalhe">
+                </f:facet>
+                #
             </h:column>
         </h:dataTable>
     </ui:define>
