@@ -1,12 +1,18 @@
 package br.ufpa.tap2.bean;
 
+import br.ufpa.tap2.dao.MarcaDAO;
+import br.ufpa.tap2.dao.ModeloDAO;
 import br.ufpa.tap2.model.Automovel;
 import br.ufpa.tap2.model.Marca;
+import br.ufpa.tap2.model.Modelo;
 import br.ufpa.tap2.util.JSFUtil;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+import javax.faces.event.AjaxBehaviorEvent;
 import javax.faces.model.SelectItem;
+import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,10 +20,17 @@ import java.util.List;
  * Created by gilson on 15/09/15.
  */
 @ManagedBean
+@ViewScoped
 public class BuscaBean {
 
+    @Inject
+    private MarcaDAO marcaDAO;
+
+    @Inject
+    private ModeloDAO modeloDAO;
+
     private Marca marcaSelecionada;
-    private SelectItem modeloSelecionado;
+    private Modelo modeloSelecionado;
 
     private Integer anoFabricacao;
     private Integer anoModelo;
@@ -29,20 +42,25 @@ public class BuscaBean {
     private Double kilometragemMaxima;
 
     private List<Automovel> automoveis;
-    private List<SelectItem> marcas;
-    private List<SelectItem> modelos;
+    private List<Marca> marcas;
+    private List<Modelo> modelos;
 
     @PostConstruct
     public void init() {
         automoveis = new ArrayList<>();
         marcas = new ArrayList<>();
         modelos = new ArrayList<>();
+        marcas = marcaDAO.listar();
+    }
 
-        Marca marca = new Marca();
-        marca.setId(1);
-        marca.setNome("Fiat");
+    public void atualizarModelos(AjaxBehaviorEvent event) {
+        modeloSelecionado = null;
 
-        marcas.add(JSFUtil.toSelectItem(marca));
+        if(marcaSelecionada != null) {
+            modelos = modeloDAO.listar(marcaSelecionada);
+        } else {
+            modelos = new ArrayList<>();
+        }
     }
 
     public String buscar() {
@@ -58,11 +76,11 @@ public class BuscaBean {
         this.marcaSelecionada = marcaSelecionada;
     }
 
-    public SelectItem getModeloSelecionado() {
+    public Modelo getModeloSelecionado() {
         return modeloSelecionado;
     }
 
-    public void setModeloSelecionado(SelectItem modeloSelecionado) {
+    public void setModeloSelecionado(Modelo modeloSelecionado) {
         this.modeloSelecionado = modeloSelecionado;
     }
 
@@ -122,19 +140,19 @@ public class BuscaBean {
         this.automoveis = automoveis;
     }
 
-    public List<SelectItem> getMarcas() {
+    public List<Marca> getMarcas() {
         return marcas;
     }
 
-    public void setMarcas(List<SelectItem> marcas) {
+    public void setMarcas(List<Marca> marcas) {
         this.marcas = marcas;
     }
 
-    public List<SelectItem> getModelos() {
+    public List<Modelo> getModelos() {
         return modelos;
     }
 
-    public void setModelos(List<SelectItem> modelos) {
+    public void setModelos(List<Modelo> modelos) {
         this.modelos = modelos;
     }
 }
