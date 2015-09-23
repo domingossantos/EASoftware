@@ -5,6 +5,7 @@ import br.ufpa.tap2.model.Automovel;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.inject.Inject;
 import java.util.List;
 
 /**
@@ -13,6 +14,7 @@ import java.util.List;
 @ManagedBean
 public class AutomovelGridBean {
 
+    @Inject
     private AutomovelDAO automovelDAO;
 
     private List<Automovel> automoveis;

@@ -1,4 +1,4 @@
-package br.ufpa.tap2.dao;
+package br.ufpa.tap2.dao.common;
 
 import br.ufpa.tap2.exception.AcessoDBError;
 
@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 
 
 @SuppressWarnings("unchecked")
@@ -16,16 +17,19 @@ public abstract class DAO<T> implements DAOLocal<T> {
 	 private EntityManager em;
 
 	@Override
+	@Transactional
 	public void salvar(T entity) throws AcessoDBError {
 		em.persist(entity);
 	}
 
 	@Override
+	@Transactional
 	public void atualizar(T entity) throws AcessoDBError {
 		em.merge(entity);
 	}
 
 	@Override
+	@Transactional
 	public void remover(Serializable id, Class<T> clazz) throws AcessoDBError {
 		em.remove(getUm(id, clazz));
 	}

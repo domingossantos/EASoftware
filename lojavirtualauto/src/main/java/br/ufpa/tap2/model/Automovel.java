@@ -15,6 +15,7 @@ public class Automovel {
     private Float preco;
     private Integer kilometragem;
     private Modelo modelo;
+    private byte[] imagem;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,6 +27,7 @@ public class Automovel {
         this.id = id;
     }
 
+    @Column(name = "ano_fabricacao")
     public Integer getAnoFabricacao() {
         return anoFabricacao;
     }
@@ -34,6 +36,7 @@ public class Automovel {
         this.anoFabricacao = anoFabricacao;
     }
 
+    @Column(name = "ano_modelo")
     public Integer getAnoModelo() {
         return anoModelo;
     }
@@ -64,6 +67,16 @@ public class Automovel {
 
     public void setKilometragem(Integer kilometragem) {
         this.kilometragem = kilometragem;
+    }
+
+    @Lob
+    @Basic(fetch = FetchType.LAZY)
+    public byte[] getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(byte[] imagem) {
+        this.imagem = imagem;
     }
 
     @ManyToOne

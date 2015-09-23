@@ -1,4 +1,4 @@
-package br.ufpa.tap2.dao;
+package br.ufpa.tap2.dao.common;
 
 import br.ufpa.tap2.exception.AcessoDBError;
 

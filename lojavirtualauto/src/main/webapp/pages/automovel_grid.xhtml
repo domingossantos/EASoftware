@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="../WEB-INF/templates/principal.xhtml">
+
+    <ui:define name="content">
+        <h:dataTable value="#{automovelGridBean.automoveis}" var="auto" width="80%">
+            <h:column>
+                <f:facet name="header">Marca</f:facet>
+                #{auto.modelo.marca.nome}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Modelo</f:facet>
+                #{auto.modelo.descricao}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Ano</f:facet>
+                #{auto.anoModelo}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Km</f:facet>
+                #{auto.kilometragem}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Valor</f:facet>
+                #{auto.preco}
+            </h:column>
+            <h:column>
+                <f:facet name="Detalhe">
+                </f:facet>
+                #
+            </h:column>
+        </h:dataTable>
+    </ui:define>
+
+</ui:composition>
+</html>
