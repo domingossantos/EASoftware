@@ -31,4 +31,25 @@ public class Marca {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Marca marca = (Marca) o;
+
+        return !(id != null ? !id.equals(marca.id) : marca.id != null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
+    }
+
+    @Override
+    public String toString() {
+        return getNome();
+    }
 }
