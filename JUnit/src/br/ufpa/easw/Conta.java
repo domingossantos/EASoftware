@@ -30,6 +30,13 @@ public class Conta {
 		saldo = saldo - value;
 	}
 
+	public void depositar(double valor){
+		if(valor <= 0)
+			throw  new IllegalArgumentException("Valor nulo ou negativo");
+
+		saldo = saldo + valor;
+	}
+
 }
 
 

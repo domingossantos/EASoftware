@@ -20,7 +20,7 @@
         <title>Loja Virtual Auto</title>
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"></link>
-
+        <h:outputStylesheet library="css" name="layout.css" />
     </h:head>
 
     <h:body>
@@ -38,8 +38,10 @@
                     </div>
                 </div>
             </div>
+            <div class="starter-template">
+                <ui:insert name="content"></ui:insert>
+            </div>
 
-            <ui:insert name="content"></ui:insert>
         </div>
     </h:body>
 
