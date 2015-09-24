@@ -15,7 +15,7 @@ public class Automovel {
     private Float preco;
     private Integer kilometragem;
     private Modelo modelo;
-    private byte[] imagem;
+    //private byte[] imagem;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -69,7 +69,7 @@ public class Automovel {
         this.kilometragem = kilometragem;
     }
 
-    @Lob
+    /*@Lob
     @Basic(fetch = FetchType.LAZY)
     public byte[] getImagem() {
         return imagem;
@@ -77,7 +77,7 @@ public class Automovel {
 
     public void setImagem(byte[] imagem) {
         this.imagem = imagem;
-    }
+    }*/
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "modelo_id", referencedColumnName = "id")

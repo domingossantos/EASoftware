@@ -6,6 +6,9 @@
         <element id="directory" name="classes">
           <element id="module-output" name="lojavirtualauto" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: commons-io:commons-io:2.4" />
+        </element>
       </element>
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/lojavirtualauto/target/lojavirutalauto.war/META-INF/MANIFEST.MF" />
