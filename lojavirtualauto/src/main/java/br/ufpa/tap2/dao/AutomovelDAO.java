@@ -68,15 +68,15 @@ public class AutomovelDAO extends DAO<Automovel> {
             }
 
             if(precoMin != null){
-                query.setParameter("precoMin", precoMax);
+                query.setParameter("precoMin", precoMin);
             }
 
             if(kiloMax != null){
-                query.setParameter("kiloMax", precoMax);
+                query.setParameter("kiloMax", kiloMax);
             }
 
             if(kiloMin != null){
-                query.setParameter("kiloMin", precoMax);
+                query.setParameter("kiloMin", kiloMin);
             }
 
             automoveis = query.getResultList();

@@ -25,7 +25,7 @@
                             </div>
                             <div class="media-body text-left">
                                 <h4 class="media-heading"><h:outputText value="#{automovel.modelo.marca.nome} - #{automovel.modelo.descricao}"></h:outputText><small><h:outputText value=" (#{automovel.anoFabricacao}/#{automovel.anoModelo})"></h:outputText></small></h4>
-                                <p><h:outputText value="#{automovel.observacao}"></h:outputText></p>
+                                <p><h:outputText value="#{automovel.kilometragem} Km. #{automovel.observacao}"></h:outputText></p>
                                 <p>
                                     <h:outputText value="#{automovel.preco}" styleClass="text-danger">
                                         <f:convertNumber type="currency" currencySymbol="R$"></f:convertNumber>
