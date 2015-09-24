@@ -6,8 +6,8 @@
 
     <h:form styleClass="form-horizontal">
         <div class="form-group">
-            <h:outputLabel value="Marca" for="marca" styleClass="col-sm-2 control-label"></h:outputLabel>
-            <div class="col-sm-10">
+            <h:outputLabel value="Marca" for="marca" styleClass="col-sm-3 control-label"></h:outputLabel>
+            <div class="col-sm-9">
                 <h:selectOneMenu id="marca" styleClass="form-control" converter="objConverter" value="#{buscaBean.marcaSelecionada}">
                     <f:selectItem noSelectionOption="true" itemValue="Selecione uma marca"></f:selectItem>
                     <f:selectItems var="marca" value="#{buscaBean.marcas}" itemValue="#{marca}" itemLabel="#{marca.nome}"></f:selectItems>
@@ -16,8 +16,8 @@
             </div>
         </div>
         <div class="form-group">
-            <h:outputLabel value="Modelo" for="modelo" styleClass="col-sm-2 control-label"></h:outputLabel>
-            <div class="col-sm-10">
+            <h:outputLabel value="Modelo" for="modelo" styleClass="col-sm-3 control-label"></h:outputLabel>
+            <div class="col-sm-9">
                 <h:selectOneMenu id="modelo" styleClass="form-control" converter="objConverter" value="#{buscaBean.modeloSelecionado}">
                     <f:selectItem noSelectionOption="true" itemValue="Selecione um modelo"></f:selectItem>
                     <f:selectItems var="modelo" value="#{buscaBean.modelos}" itemValue="#{modelo}" itemLabel="#{modelo.descricao}"></f:selectItems>
@@ -25,42 +25,40 @@
             </div>
         </div>
         <div class="form-group">
-            <h:outputLabel value="Ano de Frabricação" for="anoFabricacao" styleClass="col-sm-2 control-label"></h:outputLabel>
-            <div class="col-sm-10">
-                <h:inputText id="anoFabricacao" styleClass="form-control"></h:inputText>
+            <h:outputLabel value="Ano de Frabricação" for="anoFabricacao" styleClass="col-sm-3 control-label"></h:outputLabel>
+            <div class="col-sm-9">
+                <h:inputText id="anoFabricacao" value="#{buscaBean.anoFabricacao}" styleClass="form-control"></h:inputText>
             </div>
         </div>
         <div class="form-group">
-            <h:outputLabel value="Ano do Modelo" for="anoModelo" styleClass="col-sm-2 control-label"></h:outputLabel>
-            <div class="col-sm-10">
-                <h:selectOneMenu id="anoModelo" styleClass="form-control"></h:selectOneMenu>
+            <h:outputLabel value="Ano do Modelo" for="anoModelo" styleClass="col-sm-3 control-label"></h:outputLabel>
+            <div class="col-sm-9">
+                <h:inputText id="anoModelo" value="#{buscaBean.anoModelo}" styleClass="form-control"></h:inputText>
             </div>
         </div>
         <div class="form-group">
-            <h:outputLabel value="Preço Mínimo" for="precoMinimo" styleClass="col-sm-2 control-label"></h:outputLabel>
-            <div class="col-sm-10">
-                <h:inputText id="precoMinimo" styleClass="form-control"></h:inputText>
+            <h:outputLabel value="Preço" for="precoMinimo" styleClass="col-sm-3 control-label"></h:outputLabel>
+            <div class="col-sm-4">
+                <h:inputText id="precoMinimo" value="#{buscaBean.precoMinimo}" styleClass="form-control"></h:inputText>
+            </div>
+            <h:outputLabel value="até" styleClass="col-sm-1 control-label"></h:outputLabel>
+            <div class="col-sm-4">
+                <h:inputText id="precoMaximo" value="#{buscaBean.precoMaximo}" styleClass="form-control"></h:inputText>
             </div>
         </div>
         <div class="form-group">
-            <h:outputLabel value="Preço Máximo" for="precoMaximo" styleClass="col-sm-2 control-label"></h:outputLabel>
-            <div class="col-sm-10">
-                <h:inputText id="precoMaximo" styleClass="form-control"></h:inputText>
+            <h:outputLabel value="Kilometragem" for="kilometragemMinima" styleClass="col-sm-3 control-label"></h:outputLabel>
+            <div class="col-sm-4">
+                <h:inputText id="kilometragemMinima" value="#{buscaBean.kilometragemMinima}" styleClass="form-control"></h:inputText>
             </div>
-        </div>
-        <div class="form-group">
-            <h:outputLabel value="Kilometragem Mínima" for="kilometragemMinima" styleClass="col-sm-2 control-label"></h:outputLabel>
-            <div class="col-sm-10">
-                <h:inputText id="kilometragemMinima" styleClass="form-control"></h:inputText>
-            </div>
-        </div>
-        <div class="form-group">
-            <h:outputLabel value="Kilometragem Máxima" for="kilometragemMaxima" styleClass="col-sm-2 control-label"></h:outputLabel>
-            <div class="col-sm-10">
-                <h:inputText id="kilometragemMaxima" styleClass="form-control"></h:inputText>
+            <h:outputLabel value="até" styleClass="col-sm-1 control-label"></h:outputLabel>
+
+            <div class="col-sm-4">
+                <h:inputText id="kilometragemMaxima" value="#{buscaBean.kilometragemMaxima}" styleClass="form-control"></h:inputText>
             </div>
         </div>
 
-        <h:commandButton immediate="true" value="Buscar" action="#{buscaBean.buscar()}" type="submit"></h:commandButton>
+        <h:commandButton value="Buscar" action="#{buscaBean.buscar()}" type="submit" styleClass="btn btn-primary">
+        </h:commandButton>
     </h:form>
 </ui:composition>

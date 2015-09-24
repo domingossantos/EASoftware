@@ -1,17 +1,18 @@
 package br.ufpa.tap2.bean;
 
+import br.ufpa.tap2.dao.AutomovelDAO;
 import br.ufpa.tap2.dao.MarcaDAO;
 import br.ufpa.tap2.dao.ModeloDAO;
 import br.ufpa.tap2.model.Automovel;
 import br.ufpa.tap2.model.Marca;
 import br.ufpa.tap2.model.Modelo;
-import br.ufpa.tap2.util.JSFUtil;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
-import javax.faces.model.SelectItem;
 import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,8 +20,8 @@ import java.util.List;
 /**
  * Created by gilson on 15/09/15.
  */
-@ManagedBean
 @ViewScoped
+@ManagedBean
 public class BuscaBean {
 
     @Inject
@@ -29,17 +30,20 @@ public class BuscaBean {
     @Inject
     private ModeloDAO modeloDAO;
 
+    @Inject
+    private AutomovelDAO automovelDAO;
+
     private Marca marcaSelecionada;
     private Modelo modeloSelecionado;
 
     private Integer anoFabricacao;
     private Integer anoModelo;
 
-    private Double precoMinimo;
-    private Double precoMaximo;
+    private Float precoMinimo;
+    private Float precoMaximo;
 
-    private Double kilometragemMinima;
-    private Double kilometragemMaxima;
+    private Integer kilometragemMinima;
+    private Integer kilometragemMaxima;
 
     private List<Automovel> automoveis;
     private List<Marca> marcas;
@@ -63,9 +67,17 @@ public class BuscaBean {
         }
     }
 
-    public String buscar() {
+    public void buscar() {
         Automovel automovel = new Automovel();
-        return null;
+        automovel.setModelo(modeloSelecionado);
+        automovel.setAnoFabricacao(anoFabricacao);
+        automovel.setAnoModelo(anoModelo);
+
+        try {
+            automoveis = automovelDAO.listaPorCaracteristica(automovel, precoMaximo, precoMinimo, kilometragemMaxima, kilometragemMinima);
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
+        }
     }
 
     public Marca getMarcaSelecionada() {
@@ -100,35 +112,35 @@ public class BuscaBean {
         this.anoModelo = anoModelo;
     }
 
-    public Double getPrecoMinimo() {
+    public Float getPrecoMinimo() {
         return precoMinimo;
     }
 
-    public void setPrecoMinimo(Double precoMinimo) {
+    public void setPrecoMinimo(Float precoMinimo) {
         this.precoMinimo = precoMinimo;
     }
 
-    public Double getPrecoMaximo() {
+    public Float getPrecoMaximo() {
         return precoMaximo;
     }
 
-    public void setPrecoMaximo(Double precoMaximo) {
+    public void setPrecoMaximo(Float precoMaximo) {
         this.precoMaximo = precoMaximo;
     }
 
-    public Double getKilometragemMinima() {
+    public Integer getKilometragemMinima() {
         return kilometragemMinima;
     }
 
-    public void setKilometragemMinima(Double kilometragemMinima) {
+    public void setKilometragemMinima(Integer kilometragemMinima) {
         this.kilometragemMinima = kilometragemMinima;
     }
 
-    public Double getKilometragemMaxima() {
+    public Integer getKilometragemMaxima() {
         return kilometragemMaxima;
     }
 
-    public void setKilometragemMaxima(Double kilometragemMaxima) {
+    public void setKilometragemMaxima(Integer kilometragemMaxima) {
         this.kilometragemMaxima = kilometragemMaxima;
     }
 

@@ -48,4 +48,20 @@ public class Modelo {
     public void setMarca(Marca marca) {
         this.marca = marca;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Modelo modelo = (Modelo) o;
+
+        return !(id != null ? !id.equals(modelo.id) : modelo.id != null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
+    }
 }

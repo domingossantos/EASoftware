@@ -2,9 +2,6 @@ package br.ufpa.tap2.dao;
 
 import br.ufpa.tap2.dao.common.DAO;
 import br.ufpa.tap2.model.Automovel;
-import br.ufpa.tap2.model.Marca;
-import br.ufpa.tap2.model.Modelo;
-
 
 import javax.persistence.Query;
 import java.util.ArrayList;
@@ -15,38 +12,7 @@ import java.util.List;
  */
 public class AutomovelDAO extends DAO<Automovel> {
 
-    public List<Automovel> listaPorMarca(Marca marca) throws Exception {
-        List<Automovel> automoveis = new ArrayList<>();
-
-        try{
-            Query query = getEm().createQuery("select a from Automovel a where a.modelo.marca = :marca");
-            query.setParameter("marca",marca);
-            automoveis = query.getResultList();
-
-        } catch (Exception ex){
-            throw  new Exception("Erro ao consultar automovel");
-        }
-
-        return automoveis;
-
-    }
-
-    public List<Automovel> listaPorModelo(Modelo modelo) throws Exception {
-        List<Automovel> automoveis = new ArrayList<>();
-
-        try{
-            Query query = getEm().createQuery("select a from Automovel a where a.modelo = :modelo");
-            query.setParameter("modelo",modelo);
-            automoveis = query.getResultList();
-
-        } catch (Exception ex){
-            throw  new Exception("Erro ao consultar automovel");
-        }
-
-        return automoveis;
-    }
-
-    public List<Automovel> listaPorCaracteristica(Automovel automovel) throws Exception {
+    public List<Automovel> listaPorCaracteristica(Automovel automovel, Float precoMax, Float precoMin, Integer kiloMax, Integer kiloMin) throws Exception {
         List<Automovel> automoveis = new ArrayList<>();
 
         try{
@@ -54,53 +20,69 @@ public class AutomovelDAO extends DAO<Automovel> {
 
             sql.append("select a from Automovel a where 1 = 1 ");
 
-            if(!automovel.getModelo().equals(null)){
+            if(automovel.getModelo() != null){
                 sql.append(" and a.modelo = :modelo and a.modelo.marca = :marca");
             }
 
-            if(!automovel.getAnoFabricacao().equals(null)){
+            if(automovel.getAnoFabricacao() != null){
                 sql.append(" and a.anoFabricacao = :fabricacao");
             }
 
-            if(!automovel.getAnoModelo().equals(null)){
+            if(automovel.getAnoModelo() != null){
                 sql.append(" and a.anoModelo = : anoModelo");
             }
 
-            if(!automovel.getKilometragem().equals(null)){
-                sql.append(" and kilometragem = :kilometragem");
+            if(kiloMax != null && kiloMin != null) {
+                sql.append(" and kilometragem between :kiloMin and :kiloMax");
+            } else if(kiloMax != null && kiloMin == null) {
+                sql.append(" and kilometragem <= :kiloMax ");
+            } else if(kiloMin != null && kiloMax == null) {
+                sql.append(" and kilometragem >= :kiloMin ");
             }
 
-            if(!automovel.getPreco().equals(null)){
-                sql.append(" and preco : preco");
+            if(precoMax != null && precoMin != null) {
+                sql.append(" and preco between :precoMin and :precoMax");
+            } else if(precoMax != null && precoMin == null) {
+                sql.append(" and preco <= :precoMax ");
+            } else if(precoMin != null && precoMax == null) {
+                sql.append(" and preco >= :precoMin ");
             }
 
             Query query = getEm().createQuery(sql.toString());
 
-            if(!automovel.getModelo().equals(null)){
+            if(automovel.getModelo() != null){
                 query.setParameter("modelo",automovel.getModelo());
                 query.setParameter("marca", automovel.getModelo().getMarca());
             }
 
-            if(!automovel.getAnoFabricacao().equals(null)){
+            if(automovel.getAnoFabricacao() != null){
                 query.setParameter("fabricacao",automovel.getAnoFabricacao());
             }
 
-            if(!automovel.getAnoModelo().equals(null)){
+            if(automovel.getAnoModelo() != null){
                 query.setParameter("anoModelo", automovel.getAnoModelo());
             }
 
-            if(!automovel.getKilometragem().equals(null)){
-                query.setParameter("kilometragem",automovel.getKilometragem());
+            if(precoMax != null){
+                query.setParameter("precoMax", precoMax);
             }
 
-            if(!automovel.getPreco().equals(null)){
-                query.setParameter("preco",automovel.getPreco());
+            if(precoMin != null){
+                query.setParameter("precoMin", precoMax);
+            }
+
+            if(kiloMax != null){
+                query.setParameter("kiloMax", precoMax);
+            }
+
+            if(kiloMin != null){
+                query.setParameter("kiloMin", precoMax);
             }
 
             automoveis = query.getResultList();
 
         } catch (Exception ex){
-            throw  new Exception("Erro ao consultar automovel");
+            ex.printStackTrace();
         }
 
         return automoveis;

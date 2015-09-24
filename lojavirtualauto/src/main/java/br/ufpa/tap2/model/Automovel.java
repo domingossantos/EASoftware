@@ -79,8 +79,8 @@ public class Automovel {
         this.imagem = imagem;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "modelo_id")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "modelo_id", referencedColumnName = "id")
     public Modelo getModelo() {
         return modelo;
     }
