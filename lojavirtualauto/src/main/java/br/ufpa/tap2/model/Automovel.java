@@ -1,5 +1,7 @@
 package br.ufpa.tap2.model;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 
 /**
@@ -15,7 +17,7 @@ public class Automovel {
     private Float preco;
     private Integer kilometragem;
     private Modelo modelo;
-    //private byte[] imagem;
+    private byte[] imagem;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -69,15 +71,15 @@ public class Automovel {
         this.kilometragem = kilometragem;
     }
 
-    /*@Lob
     @Basic(fetch = FetchType.LAZY)
+    @Type(type = "org.hibernate.type.BinaryType")
     public byte[] getImagem() {
         return imagem;
     }
 
     public void setImagem(byte[] imagem) {
         this.imagem = imagem;
-    }*/
+    }
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "modelo_id", referencedColumnName = "id")

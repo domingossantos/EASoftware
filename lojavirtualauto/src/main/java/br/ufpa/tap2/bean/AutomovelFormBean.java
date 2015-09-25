@@ -68,23 +68,28 @@ public class AutomovelFormBean extends PaginaBean {
         modelos = modeloDAO.listar(marcaSelect);
     }
 
-    public void salvar(){
+    public String salvar(){
 
         try {
-            /*InputStream is = imagemCarro.getInputStream();
+            InputStream is = imagemCarro.getInputStream();
 
             byte[] dados = IOUtils.toByteArray(is);
 
-            automovel.setImagem(dados);*/
+            automovel.setImagem(dados);
 
             automovel.setModelo(modeloForm);
             automovel.setAnoFabricacao(anoFabricacao);
             automovel.setAnoModelo(anoModelo);
 
             automovelDAO.salvar(this.automovel);
+
+            init();
+
             addInfo("Registro salvo.");
         } catch (Exception ex){
-            addWarn("Erro ao salvar registro");
+            addWarn(ex.getMessage());
+        } finally {
+            return null;
         }
     }
 

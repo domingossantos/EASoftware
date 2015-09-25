@@ -6,6 +6,7 @@ import br.ufpa.tap2.dao.ModeloDAO;
 import br.ufpa.tap2.model.Automovel;
 import br.ufpa.tap2.model.Marca;
 import br.ufpa.tap2.model.Modelo;
+import br.ufpa.tap2.model.common.PaginaBean;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
@@ -22,7 +23,7 @@ import java.util.List;
  */
 @ViewScoped
 @ManagedBean
-public class BuscaBean {
+public class BuscaBean extends PaginaBean {
 
     @Inject
     private MarcaDAO marcaDAO;
@@ -76,7 +77,7 @@ public class BuscaBean {
         try {
             automoveis = automovelDAO.listaPorCaracteristica(automovel, precoMaximo, precoMinimo, kilometragemMaxima, kilometragemMinima);
         } catch (Exception e) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
+            addWarn(e.getMessage());
         }
     }
 
