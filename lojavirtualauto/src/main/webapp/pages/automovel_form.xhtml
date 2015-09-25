@@ -9,15 +9,15 @@
 <ui:composition template="../WEB-INF/templates/principal.xhtml">
 
     <ui:define name="content">
-        <h:messages></h:messages>
-        <h:form id="form_automovel" prependId="false" enctype="multipart/form-data" styleClass="form-horizontal">
+        <h:form styleClass="form-horizontal">
+            <h:messages styleClass="alert-info"></h:messages>
             <div class="form-group">
                 <h:outputLabel value="Marca" styleClass="col-sm-2 control-label"/>
                 <div class="col-sm-4">
-                    <h:selectOneMenu id="marca" styleClass="form-control" converter="objConverter" value="#{automovelFormBean.marcaSelect}">
+                    <h:selectOneMenu id="marca" styleClass="form-control" converter="objConverter" value="#{automovelFormBean.marcaSelecionada}">
                         <f:selectItem noSelectionOption="true" itemValue="Selecione uma marca"></f:selectItem>
                         <f:selectItems var="marca" value="#{automovelFormBean.marcas}" itemValue="#{marca}" itemLabel="#{marca.nome}"></f:selectItems>
-                        <f:ajax event="change" listener="#{automovelFormBean.listaModeloPorMarca}" render="modelo"></f:ajax>
+                        <f:ajax event="change" listener="#{automovelFormBean.listaMarcas}" render="modelo"></f:ajax>
                     </h:selectOneMenu>
                 </div>
 
@@ -25,7 +25,7 @@
             <div class="form-group">
                 <h:outputLabel value="Modelo" styleClass="col-sm-2 control-label"/>
                 <div class="col-sm-4">
-                    <h:selectOneMenu id="modelo" styleClass="form-control" converter="objConverter" value="#{automovelFormBean.modeloForm}">
+                    <h:selectOneMenu id="modelo" styleClass="form-control" converter="objConverter" value="#{automovelFormBean.automovel.modelo}">
                         <f:selectItem noSelectionOption="true" itemValue="Selecione um modelo"></f:selectItem>
                         <f:selectItems var="modelo" value="#{automovelFormBean.modelos}" itemValue="#{modelo}" itemLabel="#{modelo.descricao}"></f:selectItems>
                     </h:selectOneMenu>
@@ -35,14 +35,14 @@
             <div class="form-group">
                 <h:outputLabel value="Ano Modelo" styleClass="col-sm-2 control-label"/>
                 <div class="col-sm-4">
-                    <h:inputText value="#{automovelFormBean.anoModelo}"  styleClass="form-control"/>
+                    <h:inputText value="#{automovelFormBean.automovel.anoModelo}"  styleClass="form-control"/>
                 </div>
             </div>
 
             <div class="form-group">
                 <h:outputLabel value="Ano Fabricação" styleClass="col-sm-2 control-label"/>
                 <div class="col-sm-4">
-                    <h:inputText value="#{automovelFormBean.anoFabricacao}"  styleClass="form-control"/>
+                    <h:inputText value="#{automovelFormBean.automovel.anoFabricacao}"  styleClass="form-control"/>
                 </div>
             </div>
 
@@ -65,12 +65,6 @@
                 <h:outputLabel  value="Kilometragem" styleClass="col-sm-2 control-label"/>
                 <div class="col-sm-4">
                     <h:inputText value="#{automovelFormBean.automovel.kilometragem}" styleClass="form-control" />
-                </div>
-            </div>
-            <div class="form-group">
-                <h:outputLabel value="Imagem" styleClass="col-sm-2 control-label"/>
-                <div class="col-sm-4">
-                    <h:inputFile value="#{automovelFormBean.imagemCarro}" id="imagemCarro"  styleClass="form-control"/>
                 </div>
             </div>
             <div class="form-group">
