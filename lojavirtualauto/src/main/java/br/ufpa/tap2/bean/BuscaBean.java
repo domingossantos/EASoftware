@@ -7,14 +7,18 @@ import br.ufpa.tap2.model.Automovel;
 import br.ufpa.tap2.model.Marca;
 import br.ufpa.tap2.model.Modelo;
 import br.ufpa.tap2.model.common.PaginaBean;
+import org.primefaces.model.DefaultStreamedContent;
+import org.primefaces.model.StreamedContent;
 
 import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
+import javax.faces.event.PhaseId;
 import javax.inject.Inject;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -79,6 +83,10 @@ public class BuscaBean extends PaginaBean {
         } catch (Exception e) {
             addWarn(e.getMessage());
         }
+    }
+
+    public String getImage(Integer id) throws IOException {
+        return "/resources/image/" + id + ".png";
     }
 
     public Marca getMarcaSelecionada() {
