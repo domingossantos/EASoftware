@@ -11,6 +11,7 @@
 
     <properties>
         <version.javaee>7.0</version.javaee>
+        <version.primefaces>5.0</version.primefaces>
     </properties>
 
     <build>
@@ -46,6 +47,11 @@
             <artifactId>hibernate-core</artifactId>
             <version>4.3.7.Final</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>primefaces</artifactId>
+            <version>${version.primefaces}</version>
         </dependency>
         <dependency>
             <groupId>commons-io</groupId>

@@ -14,7 +14,7 @@ import org.junit.runners.Suite.SuiteClasses;
  * since the copyright notices are not removed.</i></p>
  */
 @RunWith(Suite.class)
-@SuiteClasses({ ContaTest2.class, ContaTest3.class })
+@SuiteClasses({ ContaTest2.class, ContaTest3.class, ContaTest.class })
 public class AllTests {
 	
 

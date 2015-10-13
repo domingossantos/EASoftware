@@ -1,12 +1,12 @@
 package br.ufpa.tap2.bean;
 
+import br.ufpa.tap2.bean.common.PaginaBean;
 import br.ufpa.tap2.dao.AutomovelDAO;
 import br.ufpa.tap2.dao.MarcaDAO;
 import br.ufpa.tap2.dao.ModeloDAO;
 import br.ufpa.tap2.model.Automovel;
 import br.ufpa.tap2.model.Marca;
 import br.ufpa.tap2.model.Modelo;
-import br.ufpa.tap2.model.common.PaginaBean;
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
 

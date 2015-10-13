@@ -24,9 +24,19 @@
         <processorPath useClasspath="true" />
         <module name="lojavirtualauto" />
       </profile>
+      <profile default="false" name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="JUnit" />
+        <module name="Mockito" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="JUnit" target="1.5" />
       <module name="lojavirtualauto" target="1.7" />
+      <module name="Mockito" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

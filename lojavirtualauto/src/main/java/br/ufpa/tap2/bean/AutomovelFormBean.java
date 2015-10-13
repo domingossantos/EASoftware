@@ -11,6 +11,7 @@ import org.apache.commons.io.IOUtils;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 import javax.servlet.http.Part;
 import java.io.InputStream;
@@ -20,6 +21,7 @@ import java.util.List;
  * Created by domingossantos on 24/09/15.
  */
 @ManagedBean
+@ViewScoped
 public class AutomovelFormBean extends PaginaBean {
 
     @Inject
@@ -46,6 +48,7 @@ public class AutomovelFormBean extends PaginaBean {
         automovel = new Automovel();
         marcas = marcaDAO.listar(Marca.class);
         modelos = modeloDAO.listar(Modelo.class);
+        marcaSelecionada = marcas.get(0);
     }
 
     public void listaMarcas(){
@@ -62,6 +65,7 @@ public class AutomovelFormBean extends PaginaBean {
             addInfo("Registro Salvo!");
         }
         catch (Exception ex){
+            ex.printStackTrace();
            addWarn("Erro ao salvar registro");
         }
     }

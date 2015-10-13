@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="../WEB-INF/templates/principal.xhtml">
+
+    <ui:define name="content">
+        <h:form styleClass="form-horizontal" enctype="multipart/form-data">
+
+            <div class="form-group">
+                <h:outputLabel value="Marca" styleClass="col-sm-2 control-label"/>
+                <div class="col-sm-4">
+                    <h:selectOneMenu id="marca" styleClass="form-control" converter="objConverter" value="#{automovelFormBean.marcaSelecionada}">
+                        <f:selectItem noSelectionOption="true" itemValue="Selecione uma marca"></f:selectItem>
+                        <f:selectItems var="marca" value="#{automovelFormBean.marcas}" itemValue="#{marca}" itemLabel="#{marca.nome}"></f:selectItems>
+                        <f:ajax event="change" listener="#{automovelFormBean.listaMarcas}" render="modelo"></f:ajax>
+                    </h:selectOneMenu>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Modelo</label>
+                <div class="col-sm-4">
+                    <h:selectOneMenu id="modelo" styleClass="form-control" converter="objConverter" value="#{automovelFormBean.automovel.modelo}">
+                        <f:selectItem noSelectionOption="true" itemValue="Selecione um modelo"></f:selectItem>
+                        <f:selectItems var="model" value="#{automovelFormBean.modelos}" itemValue="#{model}"  itemLabel="#{model.marca.nome} - #{model.descricao}"></f:selectItems>
+                    </h:selectOneMenu>
+                </div>
+                <div class="col-sm-4"><h:message for="modelo" /></div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Ano Modelo</label>
+                <div class="col-sm-4">
+                    <h:inputText value="#{automovelFormBean.automovel.anoModelo}" styleClass="form-control" maxlength="4" id="txAnoModelo">
+                        <f:convertNumber pattern="#0000" />
+                    </h:inputText>
+                </div>
+                <div class="col-sm-4"><h:message for="txAnoModelo" /></div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Ano Fabricação</label>
+                <div class="col-sm-4">
+                    <h:inputText value="#{automovelFormBean.automovel.anoFabricacao}" styleClass="form-control" maxlength="4" id="txAnoFabricacao">
+                        <f:convertNumber pattern="#0000" />
+                    </h:inputText>
+                </div>
+                <div class="col-sm-4"><h:message for="txAnoFabricacao" /></div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Preço</label>
+                <div class="col-sm-4">
+                    <h:inputText value="#{automovelFormBean.automovel.preco}" styleClass="form-control" id="txPreco">
+
+                    </h:inputText>
+                </div>
+                <div class="col-sm-4"><h:message for="txPreco" /></div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Kilometragem</label>
+                <div class="col-sm-4">
+                    <h:inputText value="#{automovelFormBean.automovel.kilometragem}" styleClass="form-control" id="txKilometragem">
+                        <f:convertNumber />
+                    </h:inputText>
+                </div>
+                <div class="col-sm-4"><h:message for="txKilometragem" /></div>
+
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Observação</label>
+                <div class="col-sm-6">
+                    <h:inputTextarea value="#{automovelFormBean.automovel.observacao}" rows="3" cols="50" styleClass="form-control" id="txObs"/>
+                </div>
+                <div class="col-sm-4"><h:message for="txObs" /></div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Foto Carro</label>
+                <div class="col-sm-4">
+                    <h:inputFile value="#{automovelFormBean.foto}" styleClass="form-control" rendered="true"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h:commandButton action="#{automovelFormBean.salvar}" styleClass="btn btn-info" value="Salvar"/>
+            </div>
+        </h:form>
+    </ui:define>
+
+</ui:composition>
+</html>
