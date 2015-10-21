@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: gilson
+  Date: 14/09/15
+  Time: 20:01
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<f:view contentType="text/html">
+
+    <h:head>
+        <title>Loja Virtual Auto</title>
+
+
+        <h:outputStylesheet library="css" name="bootstrap.min.css" />
+        <h:outputStylesheet library="css" name="layout.css" />
+    </h:head>
+
+    <h:body>
+        <div class="container-fluid">
+            <div class="navbar navbar-default navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">Loja Virtual Auto</a>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="consulta.xhtml">Consultar</a></li>
+                            <li><a href="cadastro.xhtml">Novo Automóvel</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="starter-template">
+                <h:messages showDetail="true" showSummary="true" styleClass="alert"></h:messages>
+                <ui:insert name="content"></ui:insert>
+            </div>
+
+        </div>
+
+    </h:body>
+
+</f:view>
+
+</html>

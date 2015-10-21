@@ -1,7 +1,5 @@
 package aula07;
 
-import org.omg.CosNaming.NamingContextExtPackage.StringNameHelper;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
@@ -21,8 +19,12 @@ public class CalculaImposto {
             System.out.println("Digite seu salario");
             retorno = bufferRead.readLine();
 
-            Double imposto = ServicoWeb.calcularimporto(Double.parseDouble(retorno));
-            System.out.println("Valor do Importo é: "+imposto.toString());
+            Double impostoINSS = ServicoWeb.calcularINSS(Double.parseDouble(retorno));
+            System.out.println("Valor do Importo do INSS é: "+impostoINSS.toString());
+
+            System.out.println("Calculo de IR");
+            Double imposto = ServicoWeb.calculaIR(Double.parseDouble(retorno));
+            System.out.println("Valor do Importo de renda é: "+imposto.toString());
         }
         catch (Exception ex){
             System.out.println(ex.getMessage());

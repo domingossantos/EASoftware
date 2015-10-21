@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="PostgreSQL - tap2@localhost" uuid="036f40f5-ca44-4946-8269-cb52ba434be4">
+      <secret-storage>master_key</secret-storage>
+      <user-name>postgres</user-name>
+      <schema-pattern>tap2.pg_catalog tap2.public</schema-pattern>
+      <default-schemas>tap2.pg_catalog tap2.public</default-schemas>
+    </data-source>
+  </component>
+</project>

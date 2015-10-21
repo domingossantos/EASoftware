@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="lojavirutalauto:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="lojavirutalauto-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="lojavirutalauto:war exploded" />
+    </root>
+  </artifact>
+</component>
